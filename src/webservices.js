@@ -33,7 +33,16 @@
          //console.log(request.body);     // json data
  
          const html = request.body.html;
-         const settings = request.body.settings;
+         let settings = request.body.settings || `{  // Use the logical OR operator
+            "format": "A4",
+            "margin": {
+                "top": "20mm",
+                "right": "10mm",
+                "bottom": "20mm",
+                "left": "10mm"
+            },
+            "printBackground": true
+          }`;
  
          // .html file suffix is important. Otherwise puppeteer will render the file as plaintext
          var tmpFile = temp.openSync({suffix: '.html'});
