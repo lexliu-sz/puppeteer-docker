@@ -9,6 +9,9 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
+# Replace 'deb.debian.org' with a mirror URL
+# RUN sed -i 's/deb.debian.org/mirror.us.leaseweb.net/g' /var/lib/apt/sources.list 
+
 RUN apt-get update && \
     apt-get install -y wget gnupg && \
     apt-get install -y fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 \
